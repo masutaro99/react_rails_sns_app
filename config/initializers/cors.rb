@@ -5,12 +5,17 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-#   allow do
-#     origins 'example.com'
-#
-#     resource '*',
-#       headers: :any,
-#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-#   end
-# end
+# すべてのオリジンからのリクエストを許可する
+# すべてのリソースに対して次のリクエストを許可する
+# APIサーバに対するリクエストにどんなヘッダでもつけることを許可する
+# methodsで指定したメソッドでのリソースへのアクセスを許可する
+
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+end
