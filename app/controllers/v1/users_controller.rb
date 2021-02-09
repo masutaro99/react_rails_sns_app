@@ -3,6 +3,10 @@ module V1
   class UsersController < ApplicationController
     skip_before_action :authenticate_user_from_token!, only: [:create]
 
+    def index
+      render json: User.all, each_serializer: V1::UserSerializer
+    end
+
     # POST
     # Create an user
     def create

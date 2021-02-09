@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :messages, only: :index, format: 'json' #=> この行を追加
   resources :posts
   namespace :v1, defaults: { format: :json } do
-    resource :login, only: [:create], controller: :sessions
-    resource :users, only: [:create]
+    resources :login, only: [:create], controller: :sessions
+    resources :users, only: [:index, :create]
   end
 end
