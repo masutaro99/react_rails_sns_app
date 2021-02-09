@@ -10,3 +10,4 @@ Message.create!([
   { title: 'Hello, Rails!', content: 'I like Rails!' },
   { title: 'Hello, React!', content: 'I like React!' }
 ])
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

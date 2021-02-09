@@ -1,6 +1,6 @@
 # app/controllers/v1/sessions_controller.rb
 module V1
-  class SessionsController < ApplicationController
+  class SessionsController < ApiController
     skip_before_action :authenticate_user_from_token!
 
     # POST /v1/login
