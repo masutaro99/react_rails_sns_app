@@ -11,6 +11,7 @@ module V1
     # Create an user
     def create
       @user = User.new user_params
+      @profile = @user.build_profile
 
       if @user.save!
         render json: @user, serializer: V1::SessionSerializer, root: nil
