@@ -13,6 +13,10 @@ module V1
     def update
       @profile.update(profile_params)
     end
+    def mypage
+      profile = Profile.find(current_user.id)
+      render json: profile, each_serializer: V1::ProfileSerializer
+    end
 
     private
 
