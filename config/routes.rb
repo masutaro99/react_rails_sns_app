@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :login, only: [:create], controller: :sessions
     resources :users, only: [:index, :create]
     resources :profiles, only: [:index, :show, :update]
+    resources :friend_requests, only: [:index, :show, :create]
   end
 end
