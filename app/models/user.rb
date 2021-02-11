@@ -31,6 +31,7 @@ class User < ApplicationRecord
   after_create :update_access_token!
 
   validates :email, presence: true
+  has_one :profile
 
   def update_access_token!
     self.access_token = "#{self.id}:#{Devise.friendly_token}"
