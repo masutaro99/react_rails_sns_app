@@ -32,6 +32,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   has_one :profile
+  has_many :friend_requests
   accepts_nested_attributes_for :profile
 
   def update_access_token!
