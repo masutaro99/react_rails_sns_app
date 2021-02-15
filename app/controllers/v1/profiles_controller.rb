@@ -14,7 +14,7 @@ module V1
       @profile.update(profile_params)
     end
     def mypage
-      profile = Profile.find(current_user.id)
+      profile = Profile.find_by(user_id: current_user.id)
       render json: profile, each_serializer: V1::ProfileSerializer
     end
 
