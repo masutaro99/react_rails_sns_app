@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index, :show, :update]
     resources :friend_requests, only: [:index, :show, :create]
     get '/mypage', to: 'profiles#mypage'
+    post 'profiles/image_uploaed', to: 'profiles#image_upload'
   end
 end

@@ -17,11 +17,18 @@ module V1
       profile = Profile.find_by(user_id: current_user.id)
       render json: profile, each_serializer: V1::ProfileSerializer
     end
+    def image_upload
+      image_path = "public/user_id_#{current_user.id}.jpg"
+      if params[:image]
+        image=params[:image]
+        File.binwrite(image_path, image.read)
+      end
+    end
 
     private
 
     def profile_params
-      params.require(:profile).permit(:nickName)
+      params.require(:profile).permit(:nickName, :image, :image_cache, :remove_image)
     end
     def set_target_profile
       @profile = Profile.find(params[:id])
