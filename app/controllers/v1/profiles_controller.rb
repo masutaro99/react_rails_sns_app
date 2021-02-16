@@ -1,7 +1,7 @@
 # app/controllers/v1/profiles_controller.rb
 module V1
   class ProfilesController < ApiController
-    skip_before_action :authenticate_user_from_token!, only: [:index, :show]
+    skip_before_action :authenticate_user_from_token!, only: [:index, :show, :update]
     before_action :set_target_profile, only: %i[show update]
 
     def index
@@ -28,10 +28,10 @@ module V1
     private
 
     def profile_params
-      params.require(:profile).permit(:nickName, :image, :image_cache, :remove_image)
+      params.require(:profile).permit(:nickName, :image)
     end
     def set_target_profile
-      @profile = Profile.find(params[:id])
+      @profile = Profile.find_by(user_id: params[:id])
     end
   end
 end
