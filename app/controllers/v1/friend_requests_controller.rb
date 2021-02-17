@@ -9,6 +9,10 @@ module V1
       @friend_request = FriendRequest.find(params[:id])
       render json: @friend_request, each_serializer: V1::FriendRequestSerializer
     end
+    def update
+      @friend_request = FriendRequest.find(params[:id])
+      @friend_request.update(friendrequest_params)
+    end
     def create
       friend_request = FriendRequest.new(friendrequest_params)
       friend_request.save
