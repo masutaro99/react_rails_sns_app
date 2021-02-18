@@ -5,9 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Message.create!([
-  { title: 'Hello, World!', content: 'I like World!' },
-  { title: 'Hello, Rails!', content: 'I like Rails!' },
-  { title: 'Hello, React!', content: 'I like React!' }
-])
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
